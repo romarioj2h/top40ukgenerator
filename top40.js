@@ -11,7 +11,7 @@ async function filter(arr, callback) {
   return (await Promise.all(arr.map(async item => (await callback(item)) ? item : fail))).filter(i=>i!==fail)
 }
 
-(async () => {
+exports.getSongsList = async () => {
   const songs = [];
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -27,4 +27,5 @@ async function filter(arr, callback) {
     });
   }
   await browser.close();
-})();
+  return songs;
+};
