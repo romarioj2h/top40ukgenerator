@@ -1,13 +1,7 @@
 const util = require('util');
 
-if (!util.promisifyMethod) {
-    util.promisifyMethod = function (fn, obj) {
-        return util.promisify(fn).bind(obj);
-    }
-}
-
 function get(service, auth, playlistId) {
-    const listService = util.promisifyMethod(service.playlistItems.list, service.playlistItems);
+    const listService = util.promisify(service.playlistItems.list).bind(service.playlistItems);
     return listService({
         auth: auth,
         part: 'snippet',
@@ -17,7 +11,7 @@ function get(service, auth, playlistId) {
 }
 
 function remove(service, auth, itemId) {
-    const deleteService = util.promisifyMethod(service.playlistItems.delete, service.playlistItems);
+    const deleteService = util.promisify(service.playlistItems.delete).bind(service.playlistItems);
     return deleteService({
         auth: auth,
         id: itemId
@@ -26,7 +20,7 @@ function remove(service, auth, itemId) {
 
 exports.insert = (service, auth, videoId) => {
     console.log('inserting: ' + videoId);
-    const insertService = util.promisifyMethod(service.playlistItems.insert, service.playlistItems);
+    const insertService = util.promisify(service.playlistItems.insert).bind(service.playlistItems);
     return insertService({
         auth: auth,
         part: 'snippet',

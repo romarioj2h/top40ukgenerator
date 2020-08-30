@@ -10,4 +10,5 @@ Generated playlist can be found here: https://www.youtube.com/playlist?list=PLfA
   - If playlistId is not provided so we can create a new one
 - Improve code organization
 - Search for official video
-- being able to especify a date to search in Official Singles Chart Top 40
+- Being able to especify a date to search in Official Singles Chart Top 40
+- Improve readme

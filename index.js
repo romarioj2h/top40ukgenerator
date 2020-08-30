@@ -3,14 +3,7 @@ var top40 = require('./officialcharts/top40.js');
 var playlistItems = require('./youtube/playlistItems.js');
 var search = require('./youtube/search.js');
 var autorization = require('./youtube/autorization.js');
-const util = require('util');
 const playlistId = "PLfAwBbHA3N6fOINFmXT2264h51LfS_TlF";
-
-if (!util.promisifyMethod) {
-  util.promisifyMethod = function (fn, obj) {
-    return util.promisify(fn).bind(obj);
-  }
-}
 
 autorization.authorize(run);
 
