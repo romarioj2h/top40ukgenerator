@@ -1,5 +1,5 @@
 var { google } = require('googleapis');
-var officialcharts = require('./officialcharts.js');
+var top40 = require('./officialcharts/top40.js');
 var playlistItems = require('./youtube/playlistItems.js');
 var search = require('./youtube/search.js');
 var autorization = require('./youtube/autorization.js');
@@ -16,7 +16,7 @@ autorization.authorize(run);
 
 async function run(auth) {
   var service = google.youtube('v3');
-  const songs = await (await officialcharts.getSongsList()).reverse();
+  const songs = await (await top40.getSongsList()).reverse();
   await playlistItems.clean(service, auth, playlistId);
   for (const song of songs) {
     let response = await search.list(service, auth, song.artist + ' ' + song.title);
