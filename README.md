@@ -6,6 +6,8 @@ Generated playlist can be found here: https://www.youtube.com/playlist?list=PLfA
 
 ### TODO:
 
-- Make playlistID a parameter
-- Clean the playlist before insert videos
+- Make playlistId a parameter
+  - If playlistId is not provided so we can create a new one
 - Improve code organization
+- Search for official video
+- being able to especify a date to search in Official Singles Chart Top 40

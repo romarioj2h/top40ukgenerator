@@ -1,7 +1,10 @@
 var { google } = require('googleapis');
 var officialcharts = require('./officialcharts.js');
+var deletePlaylistItems = require('./deletePlaylistItems.js');
 var youtube = require('./youtube.js');
 const util = require('util');
+const playlistId = "PLfAwBbHA3N6fOINFmXT2264h51LfS_TlF";
+
 if (!util.promisifyMethod) {
   util.promisifyMethod = function (fn, obj) {
     return util.promisify(fn).bind(obj);
@@ -10,13 +13,9 @@ if (!util.promisifyMethod) {
 
 youtube.authorize(run);
 
-/**
- * Lists the names and IDs of up to 10 files.
- *
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
- */
 async function run(auth) {
   var service = google.youtube('v3');
+  await deletePlaylistItems.delete(service, auth, playlistId);
   const songs = await officialcharts.getSongsList();
   const videoIds = [];
   for (const song of songs) {
@@ -54,7 +53,7 @@ function addToPlaylist(service, auth, videoId) {
     mine: true,
     resource: {
       snippet: {
-        playlistId: "PLfAwBbHA3N6fOINFmXT2264h51LfS_TlF",
+        playlistId: playlistId,
         resourceId: {
           kind: "youtube#video",
           videoId: videoId
