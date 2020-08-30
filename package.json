@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.4.0",
     "google-auth-library": "^6.0.6",
     "googleapis": "^59.0.0",
-    "puppeteer": "^5.2.1"
+    "puppeteer": "^5.2.1",
+    "yargs": "^15.4.1"
   }
 }
