@@ -2,6 +2,8 @@
 
 top40ukgenerator is a tool that get songs list from Official Singles Chart Top 40, search for the youtube video and then insert them into a youtube playlist.
 
+The follow playlist was updated by this script: [Top 40 UK Updated](https://www.youtube.com/playlist?list=PLfAwBbHA3N6fOINFmXT2264h51LfS_TlF)
+
 ## Installation
 
 ```bash
