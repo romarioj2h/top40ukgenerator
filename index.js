@@ -2,7 +2,7 @@ var { google } = require('googleapis');
 var officialcharts = require('./officialcharts.js');
 var playlistItems = require('./youtube/playlistItems.js');
 var search = require('./youtube/search.js');
-var autorization = require('./autorization.js');
+var autorization = require('./youtube/autorization.js');
 const util = require('util');
 const playlistId = "PLfAwBbHA3N6fOINFmXT2264h51LfS_TlF";
 
