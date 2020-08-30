@@ -32,3 +32,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 - Improve code organization
 - Search for official video
 - Being able to especify a date to search in Official Singles Chart Top 40
+- Improve async task management
+- Move the folder `officialcharts` to a separated package
