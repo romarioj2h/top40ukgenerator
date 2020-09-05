@@ -30,6 +30,6 @@ async function run(auth) {
     let response = await search.list(service, auth, song.artist + ' ' + song.title);
     let video = response.data.items[0];
     console.log(video.snippet.title + ' - id: ' + video.id.videoId);
-    await playlistItems.insert(service, auth, video.id.videoId);
+    await playlistItems.insert(service, auth, argv.playlistId, video.id.videoId);
   }
 }

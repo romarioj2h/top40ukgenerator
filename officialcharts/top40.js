@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
- 
+
 async function getTextContentFromSelector(selector, parentElement) {
   let element = await parentElement.$(selector);
   let elementContentProperty = await element.getProperty('textContent');
@@ -8,7 +8,7 @@ async function getTextContentFromSelector(selector, parentElement) {
 
 async function filter(arr, callback) {
   const fail = Symbol()
-  return (await Promise.all(arr.map(async item => (await callback(item)) ? item : fail))).filter(i=>i!==fail)
+  return (await Promise.all(arr.map(async item => (await callback(item)) ? item : fail))).filter(i => i !== fail)
 }
 
 exports.getSongsList = async () => {

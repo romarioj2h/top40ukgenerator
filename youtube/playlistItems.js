@@ -18,7 +18,7 @@ function remove(service, auth, itemId) {
     });
 }
 
-exports.insert = (service, auth, videoId) => {
+exports.insert = (service, auth, playlistId, videoId) => {
     console.log('inserting: ' + videoId);
     const insertService = util.promisify(service.playlistItems.insert).bind(service.playlistItems);
     return insertService({

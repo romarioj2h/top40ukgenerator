@@ -6,6 +6,7 @@ var OAuth2 = google.auth.OAuth2;
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/youtube-nodejs-quickstart.json
+//FIXME: clean not necessary scopes
 var SCOPES = [
     'https://www.googleapis.com/auth/youtube',
     'https://www.googleapis.com/auth/youtube.channel-memberships.creator',
