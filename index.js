@@ -5,6 +5,8 @@ var search = require('./youtube/search.js');
 var autorization = require('./youtube/autorization.js');
 const yargs = require('yargs');
 var colors = require('colors');
+const debug = true;
+var topbugger = require('./topbugger.js');
 
 const argv = yargs
   .option('playlistId', {
@@ -24,12 +26,12 @@ autorization.authorize(run);
 
 async function run(auth) {
   var service = google.youtube('v3');
-  const songs = await (await top40.getSongsList()).reverse();
-  await playlistItems.clean(service, auth, argv.playlistId);
+  const songs = await (await top40.getSongsList(debug)).reverse();
+  await playlistItems.clean(service, auth, argv.playlistId, debug);
   for (const song of songs) {
-    let response = await search.list(service, auth, song.artist + ' ' + song.title);
+    let response = await search.list(service, auth, song.artist + ' ' + song.title, debug);
     let video = response.data.items[0];
-    console.log(video.snippet.title + ' - id: ' + video.id.videoId);
-    await playlistItems.insert(service, auth, argv.playlistId, video.id.videoId);
+    topbugger.debug(debug, 'Found video ' + video.snippet.title + ' - id: ' + video.id.videoId);
+    await playlistItems.insert(service, auth, argv.playlistId, video.id.videoId, debug);
   }
 }
