@@ -10,9 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "google-auth-library": "^6.0.6",
+    "google-auth-library": "^6.1.6",
     "googleapis": "^59.0.0",
-    "puppeteer": "^1.7.0",
+    "puppeteer": "^1.20.0",
     "yargs": "^15.4.1"
   }
 }
